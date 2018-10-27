@@ -1,30 +1,88 @@
 ---
 layout: angular
-title: Webdev
-description: A command line interface for Dart web development.
+title: webdev and build_runner
+description: Command-line tools for Dart web development.
 ---
 
-The [webdev][] package provides a command line interface (CLI) for users and
-tools to build and serve web apps.
-The `webdev` tool is built on [build_runner][] and replaces `pub build` and `pub
-serve`. If you've previously used `build_runner`, you should no longer need to
-use it directly, except to run tests from the command line.
+The `webdev` and `build_runner` tools are command-line interfaces (CLIs)
+that you can use to build, serve, and test web apps.
+The [webdev][] package provides `webdev`,
+which wraps around the more general-purpose
+[`build_runner` tool.][build_runner]
 
-## Installing and updating webdev
+Usually you can use `webdev` instead of directly using `build_runner`.
+The only time most web app developers run `build_runner` is for tests.
 
-[Globally install][] webdev using pub:
+<aside class="alert alert-info" markdown="1">
+  **Dart 2 note:**
+  The `webdev` tool replaces the Dart 1.x `pub build` and `pub serve` commands.
+</aside>
+
+## Setup
+
+To use `webdev`, you first need to install it.
+The `build_runner` tool isn't installable;
+to run it, you need to use `pub run`.
+
+
+### Installing and updating webdev
+
+[Globally install][] `webdev` using pub:
 
 ```terminal
 $ pub global activate webdev
 ```
 
-Use the same command to update webdev.
-We recommend updating webdev whenever you update your Dart SDK
+Use the same command to update `webdev`.
+We recommend updating `webdev` whenever you update your Dart SDK
 or when `webdev` commands unexpectedly fail.
 
 [Globally install]: {{site.dartlang}}/tools/pub/cmd/pub-global
 
-## Command: serve {#serve}
+
+### Depending on build_* packages
+
+To use `webdev` or `build_runner`,
+first add the following dev dependencies to your app's `pubspec.yaml` file:
+
+<?code-excerpt "quickstart/pubspec.yaml (build dependencies)"?>
+```
+  dev_dependencies:
+    # ···
+    build_runner: ^1.0.0
+    build_test: ^0.10.3
+    build_web_compilers: ^0.4.4
+```
+
+The **build_test** dependency is optional;
+add it if you'll be testing your app.
+
+As usual after `pubspec.yaml` changes, run `pub get` or `pub upgrade`:
+
+```terminal
+$ pub get
+```
+## Using webdev and build_runner commands
+
+This section describes how to use the following commands:
+
+[webdev serve](#serve)
+: Runs a development server that continuously builds a web app.
+
+[webdev build](#build)
+: Builds a deployable version of a web app.
+
+[build_runner test](#test)
+: Runs tests.
+
+For information on using other `build_runner` commands, 
+see the [build_runner documentation.][build_runner]
+
+You can customize your build using build config files. For details, see
+the [build_web_compilers README.][build_web_compilers]
+
+
+### webdev serve {#serve}
 
 To launch a development server, which serves your app and watches for source
 code changes, use the following command:
@@ -63,10 +121,8 @@ following command changes the test port from the default (8081) to 8083:
 $ webdev serve web test:8083 # App: 8080; tests: 8083
 ```
 
-To run tests directly from the command line,
-instead of `webdev` use [build_runner test][].
 
-## Command: build {#build}
+### webdev build {#build}
 
 Use the following command to build your app:
 
@@ -86,17 +142,47 @@ top-level `web` folder into the `build` directory:
 $ webdev build --no-release --output web:build
 ```
 
-You can customize your build using build config files. For more information, see
-[Build config files.](/tools/build_runner#config)
+
+### build_runner test {#test}
+
+Use the `build_runner test` command to run your app's [component tests][]:
+
+```
+$ pub run build_runner test [--fail-on-severe] -- -p <platform>
+```
+
+The optional `--fail-on-severe` flag prevents tests from being run if there is a
+severe build error.
+
+Arguments after `--` are passed directly to the [test package][] runner. To see
+all command-line options for the test package runner, use this command:
+
+```terminal
+$ pub run build_runner test -- -h
+```
+
 
 ## More information
 
 For a complete list of `webdev` options, run `webdev --help` or see the
 [webdev package README.][webdev]
 
-[build_runner]: /tools/build_runner
-[build_runner test]: /tools/build_runner#test
+Also see the following pages:
+
+* [build_runner:][build_runner]
+  Introduces build_runner and points to more information.
+* [build_web_compilers:][build_web_compilers]
+  Has information on configuring builds,
+  with an example of using `dart2js_args` to specify
+  [dart2js options.][]
+
+[build_runner]: {{site.dartlang}}/tools/build_runner
+[build_runner test]: #test
+[build_web_compilers]: {{site.pub-pkg}}/build_web_compilers
+[component tests]: /angular/guide/testing/component
 [dart2js]: /tools/dart2js
+[dart2js options.]: /tools/dart2js#options
 [dartdevc]: /tools/dartdevc
 [supported browsers]: /faq#q-what-browsers-do-you-support-as-javascript-compilation-targets
-[webdev]: https://pub.dartlang.org/packages/webdev
+[test package]: {{site.pub-pkg}}/test
+[webdev]: {{site.pub-pkg}}/webdev

@@ -48,8 +48,8 @@ PENDING: say something about IDEs using webdev?
 : The Dart dev compiler, a modular Dart-to-JavaScript compiler.
   IDEs and the webdev CLI use dartdevc when running a development server.
 
-[build_runner](/tools/build_runner)
+[build_runner]({{site.dartlang}}/tools/build_runner)
 : A build package that's used behind the scenes by the webdev CLI.
-  Also useful for [testing](/tools/build_runner#command-test).
+  Also useful for [testing](/tools/webdev#test).
 
 [DartPad]: {{site.custom.dartpad.direct-link}}
