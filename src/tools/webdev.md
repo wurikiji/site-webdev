@@ -148,14 +148,24 @@ $ webdev build --no-release --output web:build
 Use the `build_runner test` command to run your app's [component tests][]:
 
 ```
-$ pub run build_runner test [--fail-on-severe] -- -p <platform>
+$ pub run build_runner test [build_runner options] -- -p <platform> [test options]
 ```
 
-The optional `--fail-on-severe` flag prevents tests from being run if there is a
-severe build error.
+For example, here's how to run all Chrome platform tests:
 
-Arguments after `--` are passed directly to the [test package][] runner. To see
-all command-line options for the test package runner, use this command:
+```terminal
+$ pub run build_runner test -- -p chrome
+```
+
+To see all available build_runner options, use the `--help` or `-h` option:
+
+```terminal
+$ pub run build_runner test -h
+```
+
+Arguments after the empty `--` argument
+are passed directly to the [test package][] runner.
+To see all command-line options for the test package runner, use this command:
 
 ```terminal
 $ pub run build_runner test -- -h
