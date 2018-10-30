@@ -75,9 +75,6 @@ This section describes how to use the following commands:
 [build_runner test](#test)
 : Runs tests.
 
-For information on using other `build_runner` commands, 
-see the [build_runner documentation.][build_runner]
-
 You can customize your build using build config files. For details, see
 the [build_web_compilers README.][build_web_compilers]
 
@@ -180,7 +177,8 @@ For a complete list of `webdev` options, run `webdev --help` or see the
 Also see the following pages:
 
 * [build_runner:][build_runner]
-  Introduces build_runner and points to more information.
+  Introduces build_runner and its built-in commands,
+  and points to more information.
 * [build_web_compilers:][build_web_compilers]
   Has information on configuring builds,
   with an example of using `dart2js_args` to specify
