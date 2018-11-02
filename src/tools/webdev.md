@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: webdev and build_runner
 description: Command-line tools for Dart web development.
 ---
@@ -21,9 +20,14 @@ The only time most web app developers run `build_runner` is for tests.
 
 ## Setup
 
-To use `webdev`, you first need to install it.
-The `build_runner` tool isn't installable;
-to run it, you need to use `pub run`.
+The easiest way to use `webdev` is to globally install it,
+so that it can be [in your PATH.][PATH]
+The `build_runner` tool can't be globally installed;
+to run it, you need `pub run`.
+
+Before you can use either tool,
+your web app must depend on the
+build_runner and build_web_compilers packages.
 
 
 ### Installing and updating webdev
@@ -43,8 +47,15 @@ or when `webdev` commands unexpectedly fail.
 
 ### Depending on build_* packages
 
-To use `webdev` or `build_runner`,
-first add the following dev dependencies to your app's `pubspec.yaml` file:
+To use `webdev` or (in a web app context) `build_runner`,
+you must be in the root directory of a package that depends on 
+the **build_runner** and **build_web_compilers** packages.
+If you're testing the app,
+it must also depend on **build_test**.
+
+To depend on these packages,
+add the following [dev dependencies][]
+to your app's `pubspec.yaml` file:
 
 <?code-excerpt "quickstart/pubspec.yaml (build dependencies)"?>
 ```
@@ -54,9 +65,6 @@ first add the following dev dependencies to your app's `pubspec.yaml` file:
     build_test: ^0.10.2
     build_web_compilers: ^0.4.0
 ```
-
-The **build_test** dependency is optional;
-add it if you'll be testing your app.
 
 As usual after `pubspec.yaml` changes, run `pub get` or `pub upgrade`:
 
@@ -149,6 +157,13 @@ Use the `build_runner test` command to run your app's [component tests][]:
 $ pub run build_runner test [build_runner options] -- -p <platform> [test options]
 ```
 
+<aside class="alert alert-info" markdown="1">
+  **Tip:**
+  If the command fails to load the test file,
+  make sure that your app's pubspec has a dev dependency on
+  **build_test**.
+</aside>
+
 For example, here's how to run all Chrome platform tests:
 
 ```terminal
@@ -163,10 +178,11 @@ $ pub run build_runner test -h
 
 Arguments after the empty `--` argument
 are passed directly to the [test package][] runner.
-To see all command-line options for the test package runner, use this command:
+To see all command-line options for the test package runner,
+use this command:
 
 ```terminal
-$ pub run build_runner test -- -h
+$ pub run test -h
 ```
 
 
@@ -192,6 +208,8 @@ Also see the following pages:
 [dart2js]: /tools/dart2js
 [dart2js options.]: /tools/dart2js#options
 [dartdevc]: /tools/dartdevc
+[dev dependencies]: {{site.dartlang}}/tools/pub/dependencies#dev-dependencies
+[PATH]: {{site.dartlang}}/tools/pub/cmd/pub-global#running-a-script-from-your-path
 [supported browsers]: /faq#q-what-browsers-do-you-support-as-javascript-compilation-targets
 [test package]: {{site.pub-pkg}}/test
 [webdev]: {{site.pub-pkg}}/webdev
