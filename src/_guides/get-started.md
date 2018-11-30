@@ -224,7 +224,7 @@ TODO: remove my-first-angular-app-at-work.png
 {% endcomment %}
 
  5. Optionally, improve the formatting by editing `web/styles.css`,
-    then reload the app to check your changes:
+    then reload the app to check your changes.
 
     {% prettify dart %}
     #output {
