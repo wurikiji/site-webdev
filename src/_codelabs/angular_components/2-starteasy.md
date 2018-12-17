@@ -44,11 +44,11 @@ using whatever [Dart web development tools](/tools) you prefer.
 ```diff
 --- 1-base/pubspec.yaml
 +++ 2-starteasy/pubspec.yaml
-@@ -7,11 +7,12 @@
+@@ -7,6 +7,7 @@
 
  dependencies:
-   angular: ^5.0.0
-+  angular_components: ^0.10.0
+   angular: ^5.2.0
++  angular_components: ^0.11.0
    intl: ^0.15.0
 
  dev_dependencies:
@@ -106,7 +106,7 @@ Now you’re ready to use the components.
 
 Edit the template file `lib/lottery_simulator.html` to use the
 `<material-progress>` tag
-([MaterialProgressComponent]({{site.acx_api}}/angular_components/MaterialProgressComponent-class.html)).
+([MaterialProgressComponent]({{site.acx_gallery}}/#/material_progress)).
 The diffs should look similar to this:
 
 <?code-excerpt "1-base/lib/lottery_simulator.html" diff-with="2-starteasy/lib/lottery_simulator.html" from="Progress" to="<\/material"?>
@@ -137,7 +137,7 @@ images to the buttons, using the `<material-icon>` component.
 ## <i class="far fa-money-bill-alt fa-sm"> </i> Use material-icon in buttons
 
 Using `<material-icon>`
-([MaterialIconComponent]({{site.acx_api}}/angular_components/MaterialIconComponent-class.html))
+([MaterialIconComponent]({{site.acx_gallery}}/#/material_icon))
 is similar to using `<material-progress>`,
 except that you also need
 [material icon fonts](http://google.github.io/material-design-icons/).
@@ -312,8 +312,8 @@ Adding those two lines to `lib/src/help/help.dart` makes the material icons disp
 ## <i class="far fa-money-bill-alt fa-sm"> </i> Use acx-scorecard
 
 Make one more change: use
-[ScorecardComponent]({{site.acx_api}}/angular_components/ScorecardComponent-class.html)
-(`<acx-scorecard>`) to display the betting and investing results. You’ll use the
+`<acx-scorecard>` ([ScorecardComponent]({{site.acx_gallery}}/#/scorecard))
+to display the betting and investing results. You’ll use the
 scorecards in the app’s custom `ScoresComponent` (`<scores-component>`), which is
 implemented in `lib/src/scores/scores.*`.
 
