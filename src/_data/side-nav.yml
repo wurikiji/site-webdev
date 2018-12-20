@@ -1,17 +1,15 @@
 - title: Resources
   children:
-  - title: Codelabs
-    permalink: /codelabs
-  - title: Community and Support
-    permalink: /community
-  - title: Dart 2 Migration Guide
-    permalink: /dart-2
   - title: Library Overview
     permalink: /guides/web-programming
-  - title: Tools
-    permalink: /tools
   - title: Tutorials
     permalink: /tutorials
+  - title: Tools
+    permalink: /tools
+  - title: Dart 2 Migration Guide
+    permalink: /dart-2
+  - title: Community and Support
+    permalink: /community
 
 - title: Reference
   children:
@@ -113,5 +111,7 @@
   children:
   - title: Gallery
     permalink: https://dart-lang.github.io/angular_components
+  - title: Codelab
+    permalink: /codelabs/angular_components
 
 
