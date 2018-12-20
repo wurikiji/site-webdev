@@ -246,7 +246,7 @@ For setup details and a walkthrough, see
   This was a whirlwind introduction to Dart and web programming
   that left out many details.
   For a gentler approach, try a
-  [low-level HTML tutorial for Dart](/tuotrials/low-level-html) or the
+  [low-level HTML tutorial for Dart](/tutorials/low-level-html) or the
   [AngularDart tutorial](/angular/tutorial).
 </aside>
 

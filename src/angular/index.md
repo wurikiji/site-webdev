@@ -47,7 +47,7 @@ http://news.dartlang.org/search/label/angular or http://news.dartlang.org/search
 ## Videos
 
 Angular videos from
-[Dart Development Summit 2016](https://events.dartlang.org/2016/summit/){: .no-automatic-external}:
+[Dart Development Summit](https://events.dartlang.org/2016/summit/){: .no-automatic-external}:
 
 * [Web development using AngularDart 2.0](https://www.youtube.com/watch?v=8ixOkJOXdMo&index=2&list=PLOU2XLYxmsILKY-A1kq4eHMcku3GMAyp2){: .no-automatic-external}
 * [Angular components](https://www.youtube.com/watch?v=vAUUOwBJetg&index=6&list=PLOU2XLYxmsILKY-A1kq4eHMcku3GMAyp2){: .no-automatic-external}
