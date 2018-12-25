@@ -266,7 +266,7 @@ defined in its own file.
   import 'mock_heroes.dart';
 
   class HeroService {
-    List<Hero> getAll() => mockHeroes;
+    List<Hero> getHeroes() => mockHeroes;
   }
 ```
 
@@ -702,7 +702,7 @@ Instead, the `HeroService` constructor takes a boolean flag to control display o
 
   HeroService(this._logger, this._isAuthorized);
 
-  List<Hero> getAll() {
+  List<Hero> getHeroes() {
     var auth = _isAuthorized ? 'authorized' : 'unauthorized';
     _logger.fine('Getting heroes for $auth user.');
     return mockHeroes.where((hero) => _isAuthorized || !hero.isSecret).toList();
@@ -934,7 +934,7 @@ here's an `InjectorComponent` that does.
     void ngOnInit() {
       car = _injector.get(Car);
       heroService = _injector.get(HeroService);
-      hero = heroService.getAll()[0];
+      hero = heroService.getHeroes()[0];
     }
 
     String get rodent =>
